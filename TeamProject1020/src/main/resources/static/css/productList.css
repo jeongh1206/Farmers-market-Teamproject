@@ -1,0 +1,263 @@
+/*   메뉴랑 중복 가능성 있음/ 옆단 바랑 거리  */
+.css-1pz4b76 {
+	width: 1120px;
+	margin: 0 auto;
+	padding-bottom: 80px;
+}
+
+.css-1n2hipb {
+	padding: 70px 0 48px;
+	font-weight: 500;
+	font-size: 28px;
+	line-height: 35px;
+	text-align: center;
+}
+
+.css-a6t9xs {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	letter-spacing: -0.5px;
+}
+
+.css-8wfj4z {
+	width: 742px;
+}
+
+.css-20o6z0 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	padding: 18px 10px 16px 2px;
+	font-size: 14px;
+	line-height: 26px;
+	font-weight: 500;
+}
+
+.css-zbxehx label {
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	font-size: 14px;
+	line-height: 26px;
+	padding: 0;
+	color: #333;
+}
+
+.css-1vf8o8s {
+	padding: 14px 0 9px;
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	font-size: 16px;
+	vertical-align: top;
+	line-height: normal;
+	color: #ddd;
+}
+
+.css-agvwxo {
+	overflow: hidden;
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+	-webkit-clip-path: inset(50%);
+	clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+}
+
+.css-79hxr7 {
+	margin-right: 12px;
+}
+
+.css-79hxr7 svg {
+	vertical-align: middle;
+}
+
+.css-454d5e {
+	display: inline-block;
+	width: 1px;
+	height: 14px;
+	background: #ddd;
+	margin: 6px 21px 0 22px;
+	vertical-align: top;
+}
+
+.css-2lvxh7 {
+	border-bottom: 1px solid #f4f4f4;
+}
+.css-l1lu2l {
+	padding: 115px 0;
+	border-top: 1px solid #333;
+	font-size: 16px;
+	line-height: 24px;
+	text-align: center;
+	color: #b5b5b5;
+}
+.css-1dta0ch {
+	position: relative;
+	width: 284px;
+	min-height: 942px;
+}
+.css-50ad8x {
+	position: absolute;
+	width: 284px;
+	padding-top: 60px;
+}
+.css-1t6so8j {
+	padding: 19px 18px 18px 20px;
+	border: 1px solid #f2f2f2;
+	background-color: #fafafa;
+}
+.css-1dacand {
+	padding-top: 0;
+}
+.css-8jmoub {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	padding-top: 10px;
+	padding-top: 0;
+}
+.css-vmo0an {
+	width: 100px;
+	font-size: 16px;
+	line-height: 24px;
+	white-space: nowrap;
+}
+.css-iinokh {
+	font-size: 18px;
+	line-height: 24px;
+	text-align: right;
+}
+.css-hfgifi {
+	padding-left: 2px;
+	font-size: 16px;
+	font-weight: normal;
+	vertical-align: bottom;
+}
+.css-b8kzem {
+	padding-top: 12px;
+}
+.css-t4mc5m {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	padding-top: 10px;
+	padding-top: 12px;
+}
+.css-7ygxxm {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	margin-top: 16px;
+	padding-top: 18px;
+	border-top: 1px solid #f4f4f4;
+}
+.css-da7gr8 {
+	width: 162px;
+	font-size: 18px;
+	line-height: 24px;
+	text-align: right;
+}
+.css-xmbce4 {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 28px;
+}
+.css-aro4zf {
+	padding-left: 4px;
+	font-size: 16px;
+	vertical-align: 1px;
+}
+.css-8qz8ia {
+	padding-top: 20px;
+}
+.css-10rvbm3 {
+	font-weight: 500;
+}
+.css-fwelhw {
+	display: block;
+	padding: 0 10px;
+	text-align: center;
+	overflow: hidden;
+	width: 100%;
+	height: 56px;
+	border-radius: 3px;
+	color: #fff;
+	background-color: #6aa338;
+	border: 0 none;
+	font-weight: 500;
+}
+
+.css-fwelhw:disabled {
+	background-color: #ddd;
+}
+.css-13budib {
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.css-13budib svg {
+	vertical-align: text-top;
+}
+.css-19kxq7d {
+	padding: 16px 0;
+}
+
+.css-19kxq7d li {
+	padding-top: 4px;
+	color: #666;
+}
+.css-1741abm {
+	position: relative;
+	padding-top: 4px;
+	font-size: 12px;
+	line-height: 16px;
+	padding-left: 7px;
+	color: #999;
+	text-align: left;
+}
+
+.css-1741abm:before {
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: 6px 0px 0 -6px;
+	background: #999;
+	vertical-align: top;
+	border-radius: 50%;
+	content: '';
+}

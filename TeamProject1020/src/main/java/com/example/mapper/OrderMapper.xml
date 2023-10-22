@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OrderMapper">
+	
+	<!-- 장바구니에서 주문 클릭시 -->
+	<select id="orderConfirmByNum" parameterType="arraylist" resultType="CartProductDTO">
+		select
+		CART_NO,product_code,product_name,product_context,product_price,product_img,CART_COUNT
+		from test123 where CART_NO IN 
+	  <foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+		and tb_del='N'
+	</select>
+	
+	<!-- 제품 상세 페이지에서 주문 클릭시  -->
+	<select id="orderConfirmByCode" parameterType="String" resultType="CartProductDTO">
+		select * from tb_product where product_code=#{product_code}
+	</select>
+	
+	<!-- 주문 추가 -->
+	<!-- 편의점 배송 주문시 order_post= N -->
+	<insert id="orderAdd" parameterType="OrderDTO">
+		insert into tb_order
+		(order_no,order_post,order_addr1,order_addr2,order_receiver,order_phone,
+		user_no,order_price,order_name,order_paymethod)
+	 	 values 
+		(	TB_ORDER_SEQ.NEXTVAL,#{order_post},#{order_addr1},#{order_addr2},
+			#{order_receiver},#{order_phone},#{user_no},#{order_price},
+			#{order_name},#{order_paymethod}
+		)
+		<!-- insert한 행의 주문번호 바로 가져오기 -->
+		<selectKey resultType="int" keyProperty="order_no" order="AFTER">
+			SELECT TB_ORDER_SEQ.CURRVAL FROM DUAL
+		</selectKey>
+	</insert>
+	
+	<select id="orderList" parameterType="int" resultType="OrderDTO">
+		select * from tb_order where user_no=#{user_no} and order_del='N' order by order_no desc
+	</select>
+	<!-- 주문 상세 정보 --> 
+	<insert id="orderAdd_Detail" parameterType="int">
+	 insert into tb_orderdetail(odd_no, order_no, product_code, odd_count)
+	     select TB_ORDERDETAIL_SEQ.NEXTVAL, #{order_no}, product_code, cart_count
+	         from tb_cart
+	</insert> 
+	
+	<insert id="orderAdd_Detail_nonCart" parameterType="ProductOrderDTO">
+		insert into tb_orderdetail(odd_no, order_no, product_code, odd_count)
+		values
+		(TB_ORDERDETAIL_SEQ.NEXTVAL,#{order_no},#{product_code},#{odd_count})
+	</insert>
+	
+	<!-- 특정 주문 목록 -->
+	<select id="orderView" resultType="ProductOrderDTO">
+	   select
+	       o.order_no, o.user_no, o.order_receiver, o.order_addr1, 
+	       o.order_addr2, o.order_phone, o.order_date,o.order_price,
+	       d.odd_no, d.product_code, d.odd_count,
+	       p.product_name, p.product_img, p.product_price
+	   from tb_order o
+	           inner join tb_orderdetail d
+	               on o.order_no = d.order_no
+	           inner join tb_product p
+	               on d.product_code = p.product_code
+	       where o.user_no = #{user_no}
+	           and o.order_no = #{order_no}
+	</select>
+	
+	<update id="orderDelete" parameterType="Integer">
+		 update tb_order set order_del='Y' where order_no=#{order_no} 
+	</update>
+	
+</mapper>
+
+
+
+
+
+

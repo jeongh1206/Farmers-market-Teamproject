@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+button{
+    background: #257325;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500;
+    height: 40px;
+    padding: 0px 15px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+/*고객센터 본문 전체*/
+.csMain{
+	/*가운데 정렬*/
+	margin:auto;
+	margin-left:200px;
+	
+}
+/*왼쪽의 메뉴*/
+.csMenu{
+	width:150px;
+	height:100px;
+	/*스크롤 따라감
+	position: fixed;*/
+	
+	margin-right:200px;
+	background-color: green;
+	
+
+}
+
+.csMenu li{
+	margin-top:10px
+}
+/*고객센터 번호*/
+.csNumber{
+	/*크기, 여백*/
+	
+	margin-top:50px;
+	height:150px;
+
+
+	/*선 정리 rgb+투명도*/
+	border: 1px solid rgba(128, 128, 128, 0.5);
+	border-radius: 5px;
+	
+	background-color: #F2F2E4;
+	
+	text-align: center;	
+	
+}
+
+.tablediv table{
+	margin:auto;
+	width:1000px;
+	height:500px;
+	text-align: center;	
+	vertical-align : middle;
+	
+	
+}
+
+.tablediv table td,tr,th{
+	border-right:0;
+	border-left:0;
+	border-top:1px solid rgba(128, 128, 128, 0.5);
+	border-bottom:1px solid rgba(128, 128, 128, 0.5);
+	vertical-align : middle;
+	
+	
+}
+
+.page{
+	margin:auto;
+	text-align: center;	
+}
+
+.cs_search{
+	/*우측 정렬*/
+	margin:auto;
+}
+
+

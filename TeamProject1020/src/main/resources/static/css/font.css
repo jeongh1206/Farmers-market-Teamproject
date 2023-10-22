@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.fontTitle{
+	color: #029f5b;
+	font-size: 18px;
+	font-weight:bold;
+}
+
+.fontBold{
+	font-weight:bold;
+}
+
+.fontWhiteLg{
+	color: white;
+	font-size: 18px;
+	font-weight:bold;
+}

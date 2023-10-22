@@ -1,0 +1,159 @@
+@charset "UTF-8";
+/* 바텀 라인 나누는 줄 */
+.css-17cdx60 {
+   padding-top: 30px;
+   border-top: 1px solid #f7f7f7;
+}
+/*    바텀 오른쪽 공간 배치              */
+.css-1i60c0e {
+   width: 1160px;
+   margin: 0 auto;
+}
+/* 바텀 중간을 기준으로 오른쪽- */
+.css-j6zuv6 {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-pack: justify;
+   -webkit-justify-content: space-between;
+   justify-content: space-between;
+   overflow: hidden;
+   padding-bottom: 30px;
+}
+/* 파머스행복센터 - 전화번호 공간띄우기 */
+.css-4iyald {
+   padding-bottom: 17px;
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 29px;
+}
+/* 전화번호 css */
+.css-9jqcug {
+   display: block;
+   padding-bottom: 20px;
+   font-size: 28px;
+   line-height: 40px;
+}
+/* 전화번호 옆 */
+.css-1uz1ro8 {
+   margin-left: 8px;
+   font-weight: normal;
+   font-size: 16px;
+}
+/* 문의 박스들 공간 배치 */
+.css-ho1qnd {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-flex-direction: row;
+   -ms-flex-direction: row;
+   flex-direction: row;
+}
+/* 카카오톡 문의 */
+.css-hupzfj {
+   display: block;
+   width: 140px;
+   height: 40px;
+   border: 1px solid #e2e2e2;
+   border-radius: 3px;
+   line-height: 39px;
+   text-align: center;
+   margin-right: 16px;
+   margin-bottom: 16px;
+}
+/* 문의 상세 글씨 설정(흐리게) */
+.css-1lxmeik {
+   margin-top: 2px;
+   color: #999;
+   letter-spacing: -0.5px;
+   line-height: 16.8px;
+}
+/* 바를 기준으로 공간 띄워줌 */
+.css-w0fx7a {
+   margin: 0 6px;
+}
+/* 1대1문의 박스 */
+.css-nyq565 {
+   display: block;
+   width: 140px;
+   height: 40px;
+   margin-bottom: 16px;
+   margin-right: 16px;
+   border: 1px solid #e2e2e2;
+   border-radius: 3px;
+   line-height: 39px;
+   text-align: center;
+}
+/* 비회원 문의 css */
+.css-vtjvf {
+   font-size: 14px;
+   line-height: 18px;
+   color: #999;
+}
+/* 오른쪽 css */
+.css-17hse91 {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   width: 100%;
+   padding-bottom: 33px;
+}
+/* 오른쪽 윗줄 글자 배열 */
+.css-slkv2p {
+   margin-left: 14px;
+}
+
+.css-slkv2p.bold {
+   font-weight: 500;
+}
+
+.css-slkv2p:first-of-type {
+   margin-left: 0;
+}
+/* 법인명쪽 css */
+.css-1tfhwyj {
+   font-size: 14px;
+   line-height: 18px;
+}
+/* 법인쪽 흐리게 */
+.css-bz7mfs {
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 18px;
+   color: #999;
+   margin-bottom: 40px;
+}
+/* 법인쪽 바를 기준으로 약간 오른쪽 배치 */
+/* 바 설정- */
+.css-1ekjygq {
+   padding-left: 4px;
+}
+
+.css-1ekjygq:after {
+   content: '|';
+   padding-right: 4px;
+   font-size: 10px;
+   vertical-align: top;
+}
+/* 사업자 정보 색상 */
+.css-1tby8gd {
+   margin-left: 3px;
+   color: #6aa338;
+}
+/* sns 아이콘 정렬 */
+.css-zjik7 {
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+}
+/* sns 아이콘 크기 설정 */
+.css-9ipg3 {
+   display: block;
+   width: 30px;
+   height: 30px;
+   margin-right: 10px;
+}

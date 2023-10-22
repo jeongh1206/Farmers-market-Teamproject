@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="csMapper">
+	<select id="FAQAll" resultType="FAQDTO">
+	select * from tb_FAQ
+	</select>
+	
+	<insert id="csInqAdd" parameterType="CsInqDTO">
+	insert into TB_CSINQUIRY (inq_no,inq_type,inq_title,inq_content,user_no,inq_update,inq_state,inq_created_date)
+	values (TB_CSINQ_SEQ.NEXTVAL,#{inq_type},#{inq_title},#{inq_content},#{user_no},sysdate,#{inq_state},sysdate)
+	</insert>
+	
+	<insert id="addInqFile" parameterType="FileDTO">
+		insert into tb_file
+		(FILE_NO,SEQ_NO,FILENAME,SAVEFILEPATH,SAVEFILENAME,tb_type)
+		values (
+		TB_FILE_SEQ.NEXTVAL,
+		#{SEQ_NO},
+		#{fileName},
+		#{saveFileName},
+		#{saveFilePath},
+		#{tb_type}
+		)
+</insert>
+
+
+	<select id="csInqSelectByUser" parameterType="int" resultType="csInqDTO">
+	select * from TB_CSINQUIRY where user_no = #{user_no}
+	</select> 
+
+	<select id="selectInqNo" resultType="int">
+	select max(INQ_NO) from TB_CSINQUIRY
+	</select> 
+	
+	<select id="csInqSelectByInqNo" resultType="csInqDTO" parameterType="int">
+	select * from TB_CSINQUIRY WHERE INQ_NO = #{INQ_NO}
+	</select>
+	
+	<select id="selectFileByInqNo" resultType="FileDTO" parameterType="int">
+	select * from TB_FILE WHERE seq_no = #{seq_no} AND TB_TYPE = 'TB_CSINQUIRY'
+	</select>
+	
+	<delete id="csInqDelByInqNo" parameterType="int">
+	delete from TB_CSINQUIRY WHERE INQ_NO = #{INQ_NO}
+	</delete>
+	
+	<delete id="fileDelBySeq">
+	delete from TB_FILE WHERE SEQ_NO = #{SEQ_NO}
+	</delete>
+	
+	<select id="csInqAll" resultType="CsInqDTO">
+	select * from TB_CSINQUIRY 	
+	</select>
+</mapper>
+
+ 

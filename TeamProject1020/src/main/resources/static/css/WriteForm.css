@@ -1,0 +1,49 @@
+@charset "UTF-8";
+a{
+	/*링크의 밑줄 삭제해주는 코드*/
+	text-decoration: none;
+    color: inherit;  /*링크의 색상 제거 */
+}
+
+.writeFormTable{
+		
+}
+/*form 테이블 제목 column*/
+.writeFormTable th{
+	width:15%;
+	border-right:0;
+	background-color: rgba(106, 163, 56, 0.1);
+}	
+
+
+.type{
+	width:30%;	
+}
+.content{
+	height:300px;
+}
+.InputContent{
+	border: none;
+	width:95%;
+	height:100%;
+	resize:none;
+}
+
+.uploadFileBtn{
+position:relative;
+width:80px;
+height:30px;
+font-size: 11px;
+}
+
+/*파일 첨부 div 목록*/
+.file-list{
+	margin-top:50px;	
+	
+}
+/*하나씩 추가되는 파일 첨부 div*/
+.file-group{
+	position:relative;
+	margin-left:-80px;
+}
+

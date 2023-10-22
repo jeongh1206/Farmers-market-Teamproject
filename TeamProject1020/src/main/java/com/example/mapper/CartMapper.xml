@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CartMapper">
+
+	<select id="cartList" parameterType="int" resultType="CartProductDTO">
+		select
+		CART_NO,product_code,product_name,product_context,product_price,product_img,CART_COUNT
+		from test123
+		where USER_NO=#{user_no}
+	</select>
+
+	<insert id="cartAdd" parameterType="CartProductDTO">
+		insert into tb_cart
+		(CART_NO,CART_COUNT,USER_NO,product_code)
+		values (
+		TB_CART_SEQ.NEXTVAL,
+		#{cart_count},
+		#{user_no},
+		#{product_code}
+		)
+	</insert>
+
+	<update id="amountUpdate" parameterType="hashmap">
+		update tb_cart
+		set
+		CART_COUNT= #{CART_COUNT}
+		where PRODUCT_CODE=#{PRODUCT_CODE}
+	</update>
+
+	<update id="cartUpdate" parameterType="hashmap">
+		update tb_cart
+		set
+		CART_COUNT= #{CART_COUNT}
+		where CART_NO=#{CART_NO}
+	</update>
+
+	<delete id="delete" parameterType="String">
+		delete from tb_cart where CART_NO=#{cart_no}
+	</delete>
+
+  <delete id="allDelete" parameterType="arraylist">
+	  delete
+	  from TB_CART
+	  where CART_NO IN 
+	  <foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+  <delete id="cartCheckDel" parameterType="arraylist">
+	  delete
+	  from TB_CART
+	  where CART_NO IN 
+	  <foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<select id="getCartList" parameterType="hashmap" resultType="java.util.HashMap">
+		SELECT 
+			CART_NO,
+			USER_NO,
+			PRODUCT_CODE,
+			CART_COUNT
+		FROM TB_CART
+		WHERE USER_NO = #{user_no}
+	</select>
+</mapper>
+
+
+
+
+
+

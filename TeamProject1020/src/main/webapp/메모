@@ -1,0 +1,40 @@
+drop table tb_cart;
+CREATE TABLE TB_CART(
+    CART_NO NUMBER PRIMARY KEY,
+    USER_NO NUMBER,
+    PRODUCT_CODE VARCHAR2(30) ,
+    CART_COUNT NUMBER
+);
+drop table tb_order;
+CREATE TABLE TB_ORDER(
+    order_no NUMBER PRIMARY KEY,
+    order_date DATE DEFAULT SYSDATE,
+    order_post VARCHAR2(5),
+    order_addr1 VARCHAR2(500) ,
+    order_addr2 VARCHAR2(500) ,
+    order_receiver VARCHAR2(50) ,
+    order_phone VARCHAR2(12) ,
+    user_no number ,
+    order_sta VARCHAR2(50) ,
+    order_paysta VARCHAR2(50) ,
+    order_price NUMBER null
+);
+drop table TB_ORDERDETAIL;
+create table TB_ORDERDETAIL
+  (  odd_no NUMBER PRIMARY KEY,
+     order_no NUMBER,
+     product_code VARCHAR2(30),
+     odd_count NUMBER
+  );
+  
+create SEQUENCE TB_ORDER_seq;  
+create SEQUENCE TB_ORDERDETAIL_seq;
+
+CREATE OR REPLACE VIEW test123
+AS select * from
+tb_cart join tb_product using(product_code);
+
+
+ALTER TABLE tb_order ADD order_name VARCHAR2(50);
+ALTER TABLE tb_order ADD order_paymethod VARCHAR2(50);
+select * from tb_user;

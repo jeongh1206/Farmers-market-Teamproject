@@ -1,0 +1,172 @@
+--------------------------------------------------------
+--  DDL for Table TB_FAQ
+--------------------------------------------------------
+DROP TABLE TB_FAQ;
+  CREATE TABLE "SCOTT"."TB_FAQ" 
+   (	"FAQ_NO" NUMBER, 
+	"FAQ_TYPE" VARCHAR2(50 BYTE), 
+	"FAQ_TITLE" VARCHAR2(150 BYTE), 
+	"FAQ_CONTENT" VARCHAR2(3000 BYTE), 
+	"FAQ_DELDATE" DATE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+REM INSERTING into SCOTT.TB_FAQ
+SET DEFINE OFF;
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (1,'배송','배송받을 주소를 변경하려면 어떻게 해야 하나요?','1. [주문접수/결제완료] 단계 
+ - 배송지 직접 변경 : 마이페이지>쇼핑정보>주문상세내역
+ - 직접 취소 후 재주문 : 직접 취소는 마이페이지>쇼핑정보>주문내역 가능 (취소와 동시에 결제 취소).
+ -  고객센터로 요청
+ 단, 고객센터 운영시간 내 요청하셔야 합니다.
+
+
+ 2. [배송준비중] 단계에서는 이미 출고준비가 완료된 상태로 변경해 드릴 수 없사오니 양해 바랍니다. [배송준비중] 단계에서 주소변경 사유로 취소하실 경우 배송비는 고객님 부담입니다. 환불 시 배송비가 차감된 후 잔액을 환불받게 됩니다.',null);
+Insert into SCOTT.TB_FAQ (
+FAQ_NO,
+FAQ_TYPE,
+FAQ_TITLE,
+FAQ_CONTENT,
+FAQ_DELDATE
+) 
+values (
+2,
+'배송',
+'전국 어디나 배송이 가능한가요?',
+'배송 제한 지역을 제외한 전국 어디나 배송이 가능합니다.- 배송 제한 지역 : 도서(제주도 포함)/산간지역',
+null
+);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (4,'배송','주문 후 배송조회는 어떻게 하나요?','[로그인 후] → [마이페이지] → [주문내역]을 통해 주문별로 송장번호및 진행상황을 확인하실 수 있습니다. ',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (5,'배송','전체 상품을 못받았는데 배송완료로 나옵니다.','택배사의 사정으로 일부 품목 배송이 지연될 수 있습니다.
+만약, 일부 재고부족으로 출고되지 못한 상품은 배송다음날 (영업일 기준) 문자연락을 통해 환불/재배송 관련해 안내드리고 있습니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (6,'취소/교환/환불','주문 취소, 교환, 반품은 어떻게 하나요?','1. 취소
+   - 주문취소는 [배송준비중] 이전단계에서 [주문내역]을 통해 직접처리 가능합니다. (취소와 동시에 결제 취소)
+   - [배송준비중] 이후에는 취소가 불가합니다.
+
+2. 교환/반품
+   -  제품에 이상이 있을 경우 교환/반품/환불은 상품 수령일로부터 2일 이내에만 가능합니다.
+      (단, 유통기한이 넘지 않은 제품과 개봉하지 않은 제품만 가능) 
+      * 생식품/신선식품/냉동식품 : 상품수령 후 2일 이내
+      * 상온상품 : 상품수령 후 7일 이내
+     ※ 제품 이상이란? 제품의 파손, 변질, 유통기한 경과, 이물질 혼입 등 상품에 중대한 결함이 발생한 경우를 지칭함.
+
+   - 단순 고객변심의 경우 배송비는 고객부담입니다.
+     (신선식품(야채, 청과, 일부가공식품)은 고객변심으로 인한 교환/반품/환불이 불가합니다.)
+   ※ 고객단순변심이란?
+      * 개인사정에 의한 부재로 주문상품을 미수령할 경우
+      * 주문상품에 대해 특별한 사유없이 취소/반품할 경우
+      * [결제완료] 단계에서 주소변경 사유로 취소하는 경우
+
+
+ - 기타 문의 사항은 고객센터로 문의하시기 바랍니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (7,'취소/교환/환불','주문상품을 취소신청은 어디서 하나요?','[결제완료] 단계까지는 [주문내역]을 통해 직접 취소처리 하실 수 있습니다.
+[배송준비중] 단계로 진행되었을 경우에는 이미 출고 준비가 완료된 상태로 주문취소가 불가한 점 양해 부탁드립니다. ',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (8,'취소/교환/환불','취소/반품할때 배송비는 어떻게 되나요?',' [배송준비중] 단계로 진행 된 후 고객님의 단순변심으로 인해 취소/반품이 발생할 경우 배송비는 고객님 부담입니다.
+환불 시 배송비(3,000)가 차감된 후 잔액을 환불받게 됩니다.
+
+
+
+※ 고객단순변심이란?
+1. 개인사정에 의한 부재로 주문상품을 미수령할 경우
+2. 주문상품에 대해 특별한 사유없이 취소/반품할 경우
+
+3. [배송준비중] 단계에서 주소변경 사유로 취소하는 경우',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (9,'배송','일부 상품을 받지 못했어요.','상품의 일시적인 품절로 인해 택배로 일부 상품을 보내드리지 못하는 경우가 간혹 발생하며
+이 경우 [주문내역]을 통해 품절 상품 내역을 확인하실 수 있습니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (10,'기타','자꾸 로그아웃이 됩니다.','로그인 후 이유없이 로그아웃되는 현상이 반복될경우, 아래항목 체크 부탁드리겠습니다.
+
+도구 > 인터넷옵션 > 개인정보 > 고급 설정에서 쿠키적용 체크 되어 있는지 확인 필요합니다.
+
+1. 자동으로 쿠키 처리 안함 체크
+2. 항상 세션에 쿠키 허용 체크',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (11,'주문/결제','상품을 취소/반품했는데, 카드가 취소되지 않았어요.','주문을 취소/반품 요청 후 반송이 확인되면 즉시 결제취소가 이루어집니다. 
+
+다만, 카드사에 따라 3-5 영업일 소요되는 점 참고 부탁드립니다. 
+
+내역 확인이 어려우신 경우 카드사로 문의 부탁드립니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (12,'취소/교환/환불','반품 상품은 어떻게 보내나요?','기본적으로 반품 접수 후 1~2일 영업일 내 문 앞 회수되는 점 안내드립니다.
+배송된 상태 그대로 재 포장 하셔서 방문하신 기사님께 전달해 주시면 됩니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (13,'취소/교환/환불','교환 상품은 어떻게 보내나요?','상품의 문제 발생으로 교환을 원하실 경우에는 1:1문의 바랍니다.
+    동일한 상품으로 배송을 재 진행하며, 방문 회수도 동시에 진행합니다.
+배송과 회수가 별도로 진행되기 떄문에 교환상품을 받으시기 전에 방문 회수가 먼저 이루어 질 수도 있습니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (15,'취소/교환/환불','환불은 어떻게 받나요?','1. 취소
+[결제완료] 단계에 한해 주문취소가 가능합니다.
+
+- 주문 취소 방법
+[마이페이지] - [주문내역] - [주문취소]
+
+2. 반품
+반품된 상품이 물류센터에 정상적으로 도착하면 등록된 결제 수단으로 환불됩니다.
+
+- 반품 접수 방법
+[마이페이지] - [1:1 문의] 
+단, 단순변심으로 인한 반품 시 왕복 배송비가 부과됩니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (16,'기타','내가 원하는 상품을 쉽게 찾고 싶어요.','파머스마켓 온라인 쇼핑몰에서는 카테고리 별로 상품이 분류되어 편리하게 이용이 가능합니다. 상단 검색창을 이용하신다면 원하시는 상품을 좀 더 쉽고 빠르게 찾아보실 수 있습니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (17,'기타','상품평을 작성했는데 오픈되지 않네요.','상품평은 등록 후 승인절차를 거쳐 오픈이 진행됩니다.
+
+단, 특정병명/특정성분/개인적인 효능효과 등의 내용은 과대광고 심의에 저촉되어 오픈이 불가한 점 양해 부탁드리겠습니다.
+해당 내용 이외의 고객님의 소중한 의견은 전부 공유되오니 참고 부탁드립니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (18,'주문/결제','크롬브라우저창에서 결제창 모듈이 호출이 되지 않는 경우','크롬브라우저는 자체 설정으로 팝업이 차단되어 있습니다.팝업이 차단될 경우 결제창이 정상적으로 호출되지 않을 수 있으니 설정을 확인하시기 바랍니다.
+
+[팝업 차단 해지]
+
+1. 결제창 호출 시 변경하기
+- 결제창 호출 시 주소 입력란 오른쪽 끝 팝업차단 버튼 클릭
+-  팝업을 항상 허용 선택 후 완료버튼 클릭
+- 새로고침 후 결제창 재 호출
+
+2. 설정 변경 
+- 설정 화면에서 콘텐츠 설정 - 팝업 
+- 모든 사이트에서 팝업 표시 허용 또는 예외관리에서 choroc.com 허용 후 완료',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (19,'주문/결제','결제수단 변경 가능한가요?','결제 완료 후에는 결제수단 변경은 불가합니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (20,'회원','회원가입은 어떻게 하나요?','홈페이지를 통해 하실 수 있습니다.또한 회원 가입 시 만드신 아이디, 패스워드로 모든 서비스를 이용하실 수 있습니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (21,'회원','가입하려고 했는데 [이미 가입한 회원입니다]라는 메시지가 나오는데 어떻게 해야 하나요?',' 고객님께서 직접 홈페이지를 통해 가입을 하시기 때문에, 가입한 회원이 실제 회원 본인인지 아닌지를 확인하기가 현실적으로 어렵습니다.
+본인이 직접 회원 가입한 사실이 없음에도 불구하고 회원 가입 상태로 확인되신다면 고객센터로 연락 부탁드립니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (22,'회원','제 개인정보는 어떻게 관리되나요?','당사는 회원의 정보를 적극적으로 보호하기 위해 개인정보처리방침을 제정하고 이를 준수하고 있습니다.
+    회원의 개인정보 수집 항목 및 수집 목적과 정보 보호 방법 등에 대해 명시하고 있으며, 이는 관련 법령 및 지침, 당사 내부 운영 방침에 따라 변경될 수 있습니다. 
+만약 변경 사항이 발생할 경우에는 관련 법령이 정하는 방법에 따라 고지함을 알려 드립니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (23,'회원','회원정보를 변경하려면 어떻게 해야하나요?','초록마을 멤버스 홈페이지 로그인 후 [마이페이지] > [회원정보 수정] 을 통해 변경 가능합니다.
+회원 정보 변경 시에는 보안을 위해 비밀번호 1회 추가 입력이 필요합니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (24,'회원','아이디 변경은 어떻게 하나요?','회원 가입 후에는 원칙적으로 아이디를 변경이 불가능하오니, 회원 가입 시 아이디 등록은 충분한 검토를 부탁드립니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (25,'회원','비밀번호 변경은 어떻게 하나요?','홈페이지 로그인 후 [MYPAGE] > [회원정보수정] > [새 비밀번호 입력] 을 통해 변경 가능합니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (26,'회원','아이디와 비밀번호를 잊어버렸어요. 어떻게 하나요?','홈페이지 로그인 화면에 있는 [아이디 찾기] 및 [비밀번호 찾기]를 통해 아이디 조회 및 새 비밀번호 설정이 가능합니다.
+
+※ 아이디 찾기
+- 가입 정보로 찾기 : 회원 가입 시 등록한 성명, 이메일 주소를 통해 조회
+
+※ 비밀번호 찾기
+- 아이디 입력 후, 이메일 인증을 통해 새로운 비밀번호 설정',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (27,'회원','회원 탈퇴는 어떻게 하나요?','홈페이지 로그인 후 [MYPAGE] >  [회원탈퇴] 를 통해 회원 탈퇴할 수 있습니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (28,'기타','회원이 아닌데 E-메일, 휴대폰 문자메시지가 계속 옵니다.',' E-메일, 휴대폰 문자메시지를 계속 수신하시는 경우, 고객센터를 통해 해당 내용을 문의 주시면 확인 후 즉시 조치해드리겠습니다.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (30,'주문/결제','비회원은 주문 어떻게 하나요?','당사 쇼핑몰은 회원가입 후 이용가능 합니다. 회원 가입 후 이용해 주세요.',null);
+Insert into SCOTT.TB_FAQ (FAQ_NO,FAQ_TYPE,FAQ_TITLE,FAQ_CONTENT,FAQ_DELDATE) values (31,'배송','문앞이 아니라 경비실 또는 공동현관 앞에 배송이 되었어요.','최대한 고객님 문앞 배송을 원칙으로 하고 있으나, 아래와 같은 경우로 인해 다른 장소에 배송될 수 있습니다. 
+
+- 카드키로 출입이 가능한 공동현관
+- 경비실을 통해 출입해야 하는 공동현관
+- 심야시간 폐쇄 공동현관
+- 공동현관번호가 부정확할 경우
+- 공사 등으로 인해 엘리베이터 사용이 불가한 건물
+- 그 외 공동현관 진입이 불가할 경우
+
+공동현관 비밀번호는 [*,#,종,경비 등]을 포함해서 정확하게 입력해 주셔야 안전하게 배송드릴 수 있습니다.',null);
+--------------------------------------------------------
+--  DDL for Index SYS_C007404
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SCOTT"."SYS_C007404" ON "SCOTT"."TB_FAQ" ("FAQ_NO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  Constraints for Table TB_FAQ
+--------------------------------------------------------
+
+  ALTER TABLE "SCOTT"."TB_FAQ" ADD PRIMARY KEY ("FAQ_NO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "SCOTT"."TB_FAQ" MODIFY ("FAQ_CONTENT" NOT NULL ENABLE);
+  ALTER TABLE "SCOTT"."TB_FAQ" MODIFY ("FAQ_TITLE" NOT NULL ENABLE);

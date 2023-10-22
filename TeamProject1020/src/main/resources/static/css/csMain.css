@@ -1,0 +1,125 @@
+.csBody{
+    margin-top:40px;
+    /*글씨 관련 설정*/
+    font-size: 14px;
+    text-align: center;	
+  }
+
+  /*사이드 바*/
+  .divCsMenu{
+    /*크기, 위치 관련 설정*/
+    position: fixed;
+    margin-left: 0px;
+    width: 150px;
+}
+
+/*사이드바 제외한 페이지 전체*/
+.divCsMain{
+	position:relative;
+	margin-right:0;
+	margin-left:250px;
+  }
+/*고객센터 전화번호 div*/
+.divCsInfo{
+    position:relative;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+    background-color: #F2F2E4;
+    vertical-align: middle;
+    text-align: left;	
+    height: 160px;
+}
+
+/*고객센터 전화번호 div - text만*/
+.divCsInfo .infoText{
+    margin-left: 20px;
+    margin-top:35px;
+}
+/*고객센터 전화번호 div - button만*/
+
+
+/*font 설정*/
+.textTitle{
+    font-size: 20px;
+    text-align: left;
+}
+.textBold{
+    font-weight: bold;
+}
+
+/*상품권, 공지사항 등 링크 이미지*/
+.csImgList{
+    margin-bottom: 30px;
+}
+.csImg{
+    position: relative;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    margin: 30px 30px 0px;
+    border-radius: 20px 0px 20px 20px;
+    height: 150px;
+
+}
+.accordion-button{
+    /*마지막 두 자리는 투명도 지정*/
+    /*!important: 클릭 후 펼쳐져도 색상 고정*/
+   background-color: #6aa33830 !important;
+}
+
+.innerDivimg{
+    position: relative;
+    margin: 30px;
+}
+
+/*FAQ*/
+.FAQBest{
+    text-align: left;
+}
+
+#BtnGreen{
+    /*마지막 두 자리는 투명도 지정*/
+    /*!important: 클릭 후 펼쳐져도 색상 고정*/
+   background-color: #6aa33830 !important;
+}
+
+.accordion-body{
+	line-height:150%;
+
+	}
+/*전체보기 버튼*/
+.FAQList{
+    width: 100px;
+    float: right;
+}
+
+/*고객센터 내 테이블에 전체 적용*/
+.csTable{
+/*	margin-left:150px;
+	margin-right:150px;
+*/
+margin:auto;	
+}
+
+.csTable th{
+	background-color: rgba(106, 163, 56, 0.3);
+	border-right: none;
+		
+}
+.FAQtableBtn{
+	   background-color: #ffffff !important;
+}
+.FAQtableBody{
+	   background-color: rgba(106, 163, 56, 0.1);
+}
+.InqtableBtn{
+	   background-color: #ffffff !important;
+}
+.InqtableBody{
+	   background-color: rgba(106, 163, 56, 0.1);
+}
+
+.flexwrapper{
+	/*한줄로 배치*/
+	flex-direction: row;	
+	flex-wrap:nowrap;
+	margin-bottom:20px;
+}

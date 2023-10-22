@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+
+/*페이지 자체 여백 만들어주는 코드*/
+body{
+	margin: 10px 100px 0px;
+}
+
+a{
+	/*링크의 밑줄 삭제해주는 코드*/
+	text-decoration: none;
+    color: inherit; /* 링크의 색상 제거 */
+}
+
+td, tr{
+	border: 1px solid rgba(128, 128, 128, 0.5);
+	vertical-align: center;
+}
+header{
+	display:fixed;
+}
+
+/*배송이미지*/
+header .logo1 {
+	width: 100px;
+	height: 100px;
+	margin-top:50px;
+	margin-left: 50px;
+	margin-right: 100px;
+}
+/*홈페이지로고*/
+header .logo2 {
+	width: 100px;
+	height: 100px;
+	margin-top:50px;
+}
+
+.search{
+	width:500px;
+	height:40px;
+	margin-left:100px;
+	margin-right:240px;
+	display: inline;
+}
+.search .searchbox{
+	width: 400px;
+	height:30px;
+	/*원래 모습 없애주는 코드라고 함*/
+	appearance: none;
+ 	border-left:0;
+ 	border-right:0;
+ 	border-top:0;
+ 	border-bottom-color: green;
+}
+
+.search .material-icons{
+	color:green;
+	font-size:50px;
+}
+
+
+/* >: 해당 태그에 속한 태그
+   ::before: 해당 태그 전에 있는 것 선택
+ .divmenu .menu>li:first-child::before
+ 클래스 이름이 divmenu 이고 그 아래 속한 menu class 의 자식 태그 li중 첫번째 태그.
+
+ */
+/*회원 가입 등 상단 메뉴 묶음*/
+.divmenu {
+	position: absolute;
+	right: 150px;
+	top: 30px;
+	width: 300px;
+	height: 100px;
+	font-size: small;
+	}
+
+/*회원가입 등 상단 메뉴*/
+.divmenu .menu_1 {
+	display: flex;
+	
+}
+/*menu_1의 하위 태그 중 li::before 선택*/
+.divmenu .menu_1>li::before {
+	content: "|";
+	margin: 0px 5px 0px;
+}
+
+.divmenu .menu_1>li:first-child::before {
+	display: none;
+}
+
+
+
+.divmenu .menu_icon{
+	position:relative;
+	width:200px;
+	top:30px;
+	
+	
+}
+.divmenu .menu_icon .material-icons{
+	font-size:40px;
+	margin-right:10px;	
+	}
+.divmenu_2{
+	height:50px;
+	right:150px;
+	margin:50px auto 0px;
+	border:2px solid green;
+	border-radius: 2px;
+	border-left:0;
+	border-right:0;
+}
+/*부모 클래스에 TABLE속성걸면 table 사용가능*/
+.divmenu_2 .menu_2{
+	display: table; 	
+	table-layout: fixed;
+	width:100%;
+	height: 100%;
+	font-size: 20px;
+	}
+	
+.divmenu_2 .menu_2 li{
+	display:table-cell;
+	vertical-align: middle;
+	border-collapse: collapse;
+}
+
+.inCategory{
+	width:300px;
+	height:300px;
+	background-color: blue;
+	display:none;
+	z-index: 2;	
+}
+.sectionAlign{
+	margin-left:30%;
+}
+

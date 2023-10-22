@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+	<!-- user_regdate,user_update는 기본 sysdate라 안써도 됨 -->
+	<insert id="addBuyer" parameterType="UserDTO">
+	insert into tb_user
+	(user_no,user_name,user_pw,user_phone,user_status,user_id,
+	 user_email,user_ref,user_nickname,
+	 user_type,user_post,user_address1,user_address2,user_address3)
+ 	 values 
+	(	TB_USER_SEQ.NEXTVAL,#{user_name},#{user_pw},#{user_phone},
+		#{user_status},#{user_id},
+		#{user_email},#{user_ref},
+		#{user_nickname},'member',#{user_post},
+		#{user_address1},#{user_address2},#{user_address3}
+	)
+	</insert>
+	
+	<select id="selectBuyerByid" resultType="UserDTO" parameterType="String">
+	select * from tb_user where user_id=#{user_id}
+	</select>
+	
+	<select id="login" resultType="UserDTO" parameterType="UserDTO">
+	select * from tb_user where user_id=#{user_id} and user_pw=#{user_pw} and user_type='member'
+	</select>
+	<select id="pwForLogin"  parameterType="String" resultType="String">
+	select user_pw from tb_user where user_id=#{user_id}
+	</select>
+	<insert id="insertkakao" parameterType="UserDTO">
+	insert into tb_user
+	(user_no,user_status,user_id,user_email,user_nickname,user_type)
+	 values 
+	(	TB_USER_SEQ.NEXTVAL,'t',#{user_id},#{user_email},#{user_nickname},'kakao'
+	)
+	</insert>
+
+	<insert id="insertkakaoNoMail" parameterType="UserDTO">
+	insert into tb_user
+	(user_no,user_status,user_id,user_nickname,user_type)
+	 values 
+	(	TB_USER_SEQ.NEXTVAL,'t',#{user_id},#{user_nickname},'kakao'
+	)
+	</insert>
+	
+	<select id="findId"  resultType="UserDTO" parameterType="UserDTO">
+		select * from tb_user where user_name=#{user_name} and user_email=#{user_email}
+	</select>
+	<select id="findPw"  resultType="UserDTO" parameterType="UserDTO">
+		select * from tb_user where user_id=#{user_id} and user_email=#{user_email}
+	</select>
+<!-- 회원가입 관련 체크 -->
+	<select id="add_idCheck"  resultType="String" parameterType="String">
+		select user_id from tb_user where user_id=#{user_id}
+	</select>
+	<select id="add_nicknameCheck"  resultType="String" parameterType="String">
+		select user_nickname from tb_user where user_nickname=#{user_nickname}
+	</select>
+
+	<select id="add_phoneCheck"  resultType="String" parameterType="String">
+		select user_phone from tb_user where user_phone=#{user_phone}
+	</select>
+
+	<select id="add_emailCheck"  resultType="String" parameterType="String">
+		select user_email from tb_user where user_email=#{user_email}
+	</select>
+	
+	<select id="add_noCheck"  resultType="int" parameterType="UserDTO">
+		select user_no from tb_user where user_id=#{user_id}
+	</select>
+	
+	<update id="insertNcknm" parameterType="UserDTO">
+	update tb_user set user_nickname = #{user_nickname} where user_id= #{user_id}
+	</update>
+
+	<update id="updateKakaoUser" parameterType="UserDTO">
+	update tb_user set user_name = #{user_name}, user_post = #{user_post},
+		user_address1 = #{user_address1},user_address2 = #{user_address2},
+		user_address3 = #{user_address3}, user_phone = #{user_phone},user_ref=#{user_ref}
+		where user_id= #{user_id}
+	</update>
+	
+	<update id="updatePw" parameterType="UserDTO">
+	update tb_user set user_pw = #{user_pw} where user_id = #{user_id}
+	</update>
+	
+	<select id="mypage" parameterType="int" resultType="UserDTO">
+	 select * from tb_user where user_no =#{user_no} 
+	</select>
+	
+</mapper>

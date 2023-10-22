@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.selectCsSearch{
+	position: absolute;
+	width:100px;
+	height:30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left:-160px;
+    
+}
+.divCsSearch{
+	float:right;
+	}
+	
+.inputCsSearch{
+	position:relative;
+	width: 150px;
+    height: 32px;
+    line-height: 18px;
+    font-size: 12px;
+    padding: 0px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left:-50px;
+}
+.btnCsSearch{
+	position:relative;
+	/*테두리 지정*/
+    border: 1px solid #ccc;
+    /*테두리를 기준으로 크기를 정한다.*/
+    box-sizing: border-box;
+   margin-right:-100px;
+}

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductMapper">
+
+   <select id="goodsRetrieve" resultType="Product" 
+	parameterType="string">
+	select *
+	from tb_product
+	where product_code= #{product_code}
+	</select>
+	
+	<select id="selectGoodsBySearchWord" parameterType="String" resultType="Product">
+		select * from tb_product where product_name 
+		like '%'|| #{searchWord} || '%' order by product_name
+	</select>
+	
+	<select id="selectKeywordSearch" parameterType="String" resultType="String">
+		select product_name from tb_product where product_name 
+		like '%'|| #{searchWord} || '%' order by product_name
+	</select>
+	
+	<select id="selectAll" parameterType="String" resultType="Product">
+		select * from tb_product where product_name 
+		like '%'|| #{searchWord} || '%' order by product_name
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		select count(*) from tb_product where product_name 
+		like '%'|| #{searchWord} || '%' order by product_name
+	</select>
+	
+		<select id="goodsList" resultType="Product" parameterType="string">
+		select * from tb_product
+		where category_code= #{category_code}	
+	</select>
+	
+	<select id="productDetails" parameterType="String" resultType="Product">
+		select * from tb_product where product_code = #{product_code}
+	</select>
+	
+	<select id="productList" parameterType="hashmap" resultType="java.util.HashMap">
+		SELECT 
+		    PRODUCT_CODE
+		    ,PRODUCT_NAME
+		    ,PRODUCT_IMG
+		    ,PRODUCT_CONTEXT
+		    ,PRODUCT_PRICE
+		    ,PRODUCT_STOCK
+		    ,CATEGORY_CODE
+		    ,PRODUCT_COMPANY
+		    ,PRODUCT_DELIP
+		    ,PRODUCT_STATUS
+		    ,PRODUCT_REGDATE
+		    ,PRODUCT_UPDATE
+		FROM TB_PRODUCT
+		<if test="filter != null and filter != ''">
+			<if test="filter == 'many'">
+				ORDER BY PRODUCT_STOCK ASC
+			</if>
+			<if test="filter == 'low'">
+				ORDER BY PRODUCT_PRICE ASC
+			</if>
+			<if test="filter == 'high'">
+				ORDER BY PRODUCT_PRICE DESC
+			</if>
+		</if>
+	</select>	
+	
+</mapper>
+
+
+
+
+
+
