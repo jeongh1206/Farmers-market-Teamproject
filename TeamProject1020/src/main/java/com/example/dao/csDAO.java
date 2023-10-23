@@ -15,7 +15,6 @@ public interface csDAO {
 
 	int csInqAdd(SqlSessionTemplate session,CsInqDTO csdto);
 
-	//나중에 다른데로 이동할수도
 	int addFile(SqlSessionTemplate session, FileDTO fdto);
 	
 	ArrayList<CsInqDTO> csInqSelectByUser(SqlSessionTemplate session, int user_no);
@@ -30,5 +29,8 @@ public interface csDAO {
 
 	void fileDelBySeq(SqlSessionTemplate session, int inqNo);
 
-	List<CsInqDTO> csInqAll(SqlSessionTemplate session);
+	List<CsInqDTO> adm_csInqAll(SqlSessionTemplate session);
+	
+	List<CsInqDTO> adm_inqByInq_NO(SqlSessionTemplate session,int inq_no);
+
 }

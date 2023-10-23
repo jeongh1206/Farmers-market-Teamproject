@@ -31,7 +31,9 @@ public interface CustomerServiceService {
     public ArrayList<FileDTO> selectFileByInqNo(int inq_no);
 	public void csInqDelByInqNo(int inqNo);
 	public void fileDelBySeq(int inqNo);
-	public List<CsInqDTO> csInqAll();
+	public List<CsInqDTO> adm_csInqAll();
+	public List<CsInqDTO> adm_inqByInq_NO(int inq_no);
+	
 	
 
 }

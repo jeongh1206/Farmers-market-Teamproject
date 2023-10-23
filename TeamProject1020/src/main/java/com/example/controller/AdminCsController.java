@@ -22,13 +22,4 @@ public class AdminCsController {
 	@Autowired
 	CustomerServiceService service;
 	
-	@PostMapping("/cs/adm_InquiryList")
-	public JSONObject adm_InquiryList(HttpSession session) {
-		List<CsInqDTO> list = new ArrayList<CsInqDTO>();
-		list = service.csInqAll();
-		  JSONObject jsonObject = new JSONObject();
-	      jsonObject.put("CsInq", list);
-	    //  String jsonInfo=jsonObject.toString();
-		return jsonObject;
-	};//method
 }//controller

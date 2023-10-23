@@ -62,9 +62,16 @@ public class csDAOImpl implements csDAO{
 	}
 
 	@Override
-	public ArrayList<CsInqDTO> csInqAll(SqlSessionTemplate session) {
+	public ArrayList<CsInqDTO> adm_csInqAll(SqlSessionTemplate session) {
 		ArrayList<CsInqDTO>  list = null;
-		list = (ArrayList)session.selectList("csInqAll");
+		list = (ArrayList)session.selectList("adm_csInqAll");
+		return list;
+	}
+
+	@Override
+	public List<CsInqDTO> adm_inqByInq_NO(SqlSessionTemplate session,int inq_no) {
+		ArrayList<CsInqDTO>  list = null;
+		list = (ArrayList)session.selectList("adm_inqByInq_NO",inq_no);
 		return list;
 	}
 	

@@ -1,24 +1,27 @@
 package com.example.dto;
 
 public class CsInqDTO {
-	
+	//tb_csInquiry
 	private int inq_no;
 	private String inq_type;
 	private String inq_title;
 	private String  inq_content;
 	private int user_no;
 	private String inq_update;
-	private String inq_deldate;
-	private String inq_answer;
+	private String inq_answer;	
 	private String inq_state;
 	private String inq_created_date;
+	//tb_user
+	private String user_name;
+	private String user_email;
 	
 	public CsInqDTO() {
 		super();
 	}
-	
+
+
 	public CsInqDTO(int inq_no, String inq_type, String inq_title, String inq_content, int user_no, String inq_update,
-			String inq_deldate, String inq_answer, String inq_state, String inq_created_date) {
+			String inq_answer, String inq_state, String inq_created_date, String user_name, String user_email) {
 		super();
 		this.inq_no = inq_no;
 		this.inq_type = inq_type;
@@ -26,11 +29,13 @@ public class CsInqDTO {
 		this.inq_content = inq_content;
 		this.user_no = user_no;
 		this.inq_update = inq_update;
-		this.inq_deldate = inq_deldate;
 		this.inq_answer = inq_answer;
 		this.inq_state = inq_state;
 		this.inq_created_date = inq_created_date;
+		this.user_name = user_name;
+		this.user_email = user_email;
 	}
+
 
 	public int getInq_no() {
 		return inq_no;
@@ -80,13 +85,7 @@ public class CsInqDTO {
 		this.inq_update = inq_update;
 	}
 
-	public String getInq_deldate() {
-		return inq_deldate;
-	}
 
-	public void setInq_deldate(String inq_deldate) {
-		this.inq_deldate = inq_deldate;
-	}
 
 	public String getInq_answer() {
 		return inq_answer;
@@ -112,11 +111,28 @@ public class CsInqDTO {
 		this.inq_created_date = inq_created_date;
 	}
 
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public String getUser_email() {
+		return user_email;
+	}
+
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
+	}
+
 	@Override
 	public String toString() {
 		return "CsInqDTO [inq_no=" + inq_no + ", inq_type=" + inq_type + ", inq_title=" + inq_title + ", inq_content="
-				+ inq_content + ", user_no=" + user_no + ", inq_update=" + inq_update + ", inq_deldate=" + inq_deldate
-				+ ", inq_answer=" + inq_answer + ", inq_state=" + inq_state + ", inq_created_date=" + inq_created_date
-				+ "]";
+				+ inq_content + ", user_no=" + user_no + ", inq_update=" + inq_update + ", inq_answer=" + inq_answer
+				+ ", inq_state=" + inq_state + ", inq_created_date=" + inq_created_date + ", user_name=" + user_name
+				+ ", user_email=" + user_email + "]";
 	}
+
 }//class

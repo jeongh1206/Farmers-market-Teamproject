@@ -394,8 +394,14 @@ public void fileDelBySeq(int inqNo) {
 }
 
 @Override
-public List<CsInqDTO> csInqAll() {
-	List<CsInqDTO> list = dao.csInqAll(session);
+public List<CsInqDTO> adm_csInqAll() {
+	List<CsInqDTO> list = dao.adm_csInqAll(session);
+	return list;
+}
+
+@Override
+public List<CsInqDTO> adm_inqByInq_NO(int inq_no) {
+	List<CsInqDTO> list = dao.adm_inqByInq_NO(session,inq_no);
 	return list;
 }
 }//class

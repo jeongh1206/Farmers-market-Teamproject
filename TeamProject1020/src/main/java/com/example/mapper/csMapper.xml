@@ -50,8 +50,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	delete from TB_FILE WHERE SEQ_NO = #{SEQ_NO}
 	</delete>
 	
-	<select id="csInqAll" resultType="CsInqDTO">
-	select * from TB_CSINQUIRY 	
+	<select id="adm_csInqAll" resultType="CsInqDTO">
+	SELECT inq_no,inq_type,inq_title,inq_content,tb_user.user_no,inq_update,inq_answer,inq_state,inq_created_date,user_name,user_email  FROM TB_CSINQUIRY JOIN tb_user ON TB_CSINQUIRY.user_no = tb_user.user_no
+	</select>
+	
+	<select id="adm_inqByInq_NO" parameterType="int" resultType="CsInqDTO">
+		SELECT inq_no,inq_type,inq_title,inq_content,tb_user.user_no,inq_update,inq_answer,inq_state,inq_created_date,user_name,user_email  FROM TB_CSINQUIRY JOIN tb_user ON TB_CSINQUIRY.user_no = tb_user.user_no where inq_no = #{inq_no}
+	
 	</select>
 </mapper>
 
