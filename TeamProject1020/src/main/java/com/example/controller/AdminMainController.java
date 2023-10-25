@@ -24,7 +24,6 @@ public class AdminMainController {
 	public ModelAndView csInqRetrieve(int inq_no) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("CsInq",service.adm_inqByInq_NO(inq_no));
-		System.out.println(inq_no);
 		mav.setViewName("/ADMIN/csInqRetrieve");
 		return mav;
 	}//

@@ -15,6 +15,10 @@ pageEncoding="UTF-8"%>
          <jsp:include page="common/common.jsp" flush="true"></jsp:include>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="<%=request.getContextPath()%>/resources/css/styles.css" rel="stylesheet" />
+		
+		<!-- css 수정 파일 -->        
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/admCs.css">
+        
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
    	 <!-- jquery -->
    	 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -46,6 +50,27 @@ pageEncoding="UTF-8"%>
 						<%}//for
 					}//if%>
 				$("tbody").html(tableStr);	
+				
+				//전체목록 끝
+				
+				//모달창
+		//띄워주는 창
+		const btn = $('tr');
+		const modal = $('#modalWrap');
+		const closeBtn = $('#closeBtn');
+		
+		btn.onclick = function() {
+		  modal.style.display = 'block';
+		}
+		closeBtn.onclick = function() {
+		  modal.style.display = 'none';
+		}
+		
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		}
    	});//ready
    	</script>
     </head>
@@ -100,6 +125,33 @@ pageEncoding="UTF-8"%>
                             </div>
                         </div>
                     </div>
+                    <!-- 모달창 -->
+                  <div id="modalWrap">
+		        <div id="modalContent">
+			        <div id="modalBody">
+				        <span id="closeBtn">&times;</span>
+				       
+				        <p>제목</p>
+				         <hr>
+				           	작성자 일시<br>
+				         <hr>
+				         	내용
+				         <hr>
+				         
+				         
+				         <textarea id="csAnswer" placeholder="답변 입력">
+				         </textarea>
+				         <a href="#">파일</a>
+				         <a href="#">파일</a><br>
+				         <div class="d-flex flex-row-reverse">
+				<button type="button" id="answerBtn"class="btn btn-secondary p-2">작성하기</button>
+			</div>
+			        </div><!-- modalBody -->
+		        </div><!-- modalContent -->
+		      </div><!-- modalWrap -->
+		      <br>
+		      <br>
+		      <br>
                 </main>
                 <jsp:include page="common/bottom.jsp" flush="true"></jsp:include>
             </div>

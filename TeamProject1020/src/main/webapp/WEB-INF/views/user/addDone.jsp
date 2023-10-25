@@ -10,12 +10,133 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
-<!-- 이벤트 처리 관련 js파일 연결 -->
-<script type="text/javascript" src="resources/js/login_Buyer.js"></script>
 <script>
-$('a').removeattr('href');
+
+$(function() {
+////////////변수 선언/////////////
+	//dom을 변수에 저장
+	var name = $("#name");
+	var phone = $("#phoneNumber");
+	var post = $("#sample4_postcode");
+	var ref = $("#user_ref");
+	
+	//이메일 인증했는지 확인하는 변수
+	
+///////////이벤트 처리 //////////////
+	function validateField(field, validationFunction) {
+		  field.blur(validationFunction);
+		  $("#userForm").submit(validationFunction);
+		}//fuction
+
+	
+	//각 태그에서 submit 또는 blur 할 때  유효성 검사
+	  validateField(name, nameCheck);
+	  validateField(phone, phoneCheck); 
+	  validateField(ref, refCheck); 
+	  validateField(post, addressCheck); 
+	 
+	  $("#userForm").submit(addressCheck);
+/////////유효성 검사 함수 시작//////////
+	//이름 검사 - 필수 입력/2글자 이상 한글 이름
+	function nameCheck(){
+		const namePattern = /^[가-힣]{2,}$/;
+		if(name.val().length==0){ //이름 미입력
+			$("#name_message").text("이름을 입력하세요.");
+			return false;
+		}else{//이름 입력, 정규식에 맞을 때
+			if(namePattern.test(name.val())){
+				$("#name_message").text("");
+				return true;
+			}else{//이름 입력, 정규식에 맞지 않을 때
+				$("#name_message").text("이름을 확인해주세요");
+				return false;
+			}//else
+		}//else
+	}//name이벤트
+		
+	
+	
+
+	function addressCheck(){
+		//Buyer.jsp 의 주소 추가 버튼
+		if(post.val().length==0){
+			$("#address_message").text("주소를 입력하세요");
+			return false;
+		}else{
+			$("#address_message").text("");
+			return true;
+		}
+	}//addressCheckFunction
+	
+	//휴대폰 유효성 검사
+	function phoneCheck(){
+		if(phone.val().length==0){ //길이가 0일 때
+			$("#phone_message").text("휴대폰 번호를 입력하세요.");
+			return false;
+		}else{//길이가 0이 아닐 때 
+			//01로 시작하는 번호만 가능
+			const phonePattern = /^01\d{8,9}$/;
+			if(phonePattern.test(phone.val())){
+			$.ajax({ //길이가 0이 아닐 때
+				type : "POST",
+				url : "register/add_phoneCheck",
+				dataType : "json",
+				data : {
+					user_phone : phone.val()
+					},
+				success : function(rdata, status, xhr) {
+					$("#phone_message").html(rdata.str);
+					return rdata.result;
+					}, 
+				error : function(xhr, status, error) {
+					console.log("error");
+					return false;
+					}//error
+				});//ajax
+			}//if
+			else{
+				$("#phone_message").text("번호 입력이 잘못되었습니다. 다시 확인해 주세요.");
+				return false;
+			}//else
+			
+		}//else
+	}//phone이벤트 function
+		
+	function refCheck(){//추천인 검사
+		if(ref.val().length==0){
+			$("#ref_message").text("");
+			return true;
+
+		}else{
+			//기존에 없던 닉네임을 쓰면 걸러지도록.
+			const refPattern  = /^[가-힣a-zA-Z0-9]+$/;
+			if(refPattern.test(ref.val())){
+			$.ajax({
+				type : "POST",
+				url : "register/add_refCheck",
+				dataType : "json",
+				data : {
+					user_nickname : ref.val()
+					},
+				success : function(rdata, status, xhr) {
+					$("#ref_message").text(rdata.str);
+					return rdata.result;
+					}, 
+				error : function(xhr, status, error) {
+					console.log("error");
+					return false;
+					}//error
+				});//ajax
+			}//if
+			else{
+				$("#ref_message").text("추천인 입력이 잘못되었습니다. 다시 확인해 주세요.(공백 불가)");
+				return false;
+			}//else
+		}//else
+	}//method
+	
+	});//read
 </script>
 </head>
 <body>	
@@ -24,7 +145,7 @@ $('a').removeattr('href');
 	<section class="sectionAlign">
 	    <label class="col-lg-8 control-label">회원가입이 완료되었습니다.<br></label><br><br><br>
 	    
-		<form class="form-horizontal" id="AddBuyer" role="form" method="post" action="/app/addDone">
+		<form class="form-horizontal" id="userForm" role="form" method="post" action="/app/addDone">
 		
 			<div class="form-group" id="divName">
 			    <label for="inputName" class="col-lg-8 control-label">이름</label>
@@ -43,6 +164,8 @@ $('a').removeattr('href');
 			    <input type="text" class="col-lg-12" name="user_address2" id="sample4_jibunAddress" readonly="readonly" style="background: #eee">
 			    <input type="text" class="col-lg-12" name="user_address3" id="addr3" placeholder="상세주소">
 			    <span id="guide" style="color:#999"></span>
+ 			    <span id="address_message" style="color:red"></span>
+			    
 			    </div>
 			</div>  
 	

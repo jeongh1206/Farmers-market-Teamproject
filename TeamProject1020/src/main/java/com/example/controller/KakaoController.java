@@ -94,6 +94,7 @@ public class KakaoController {
 			service.insertkakao(dto);
 			dto = userService.selectBuyerByid(id);
 			session.setAttribute("login", dto);
+			
 			mav.setViewName("redirect:../addDoneUI");
 		}
     	return mav;
@@ -101,9 +102,11 @@ public class KakaoController {
     
   //기능: 카카오로 회원가입 후 마무리 페이지로 이동
   	@RequestMapping("/addDoneUI")
-  	public ModelAndView addDoneUI(){
+  	public ModelAndView addDoneUI(HttpSession session){
+
 		ModelAndView mav = new ModelAndView(); 
   		mav.setViewName("/user/addDone");
+
 		return mav;
   		
   	}
@@ -111,16 +114,17 @@ public class KakaoController {
   	@PostMapping("/addDone")
   	public ModelAndView addDone(HttpSession session,UserDTO dto){
 		ModelAndView mav = new ModelAndView(); 
-		
-		//세션에 이미 카카오 유저 정보는 저장되어있음.
-		//거기서 아이디를 꺼내서 dto를 다시 세팅한다. 
+
+//		//세션에 이미 카카오 유저 정보는 저장되어있음.
+//		//거기서 아이디를 꺼내서 dto를 다시 세팅한다. 
 		UserDTO sessionDTO = (UserDTO)session.getAttribute("login");
 		dto.setUser_id(sessionDTO.getUser_id());
-  		userService.updateKakaoUser(dto);
+ 		userService.updateKakaoUser(dto);
   		//dto로 받아서 update 후 id 통해 값 다시 받아서 저장
   		dto = userService.selectBuyerByid(dto.getUser_id());
-//  		System.out.println("kakaoController의 addDone"+dto);
+ 		System.out.println("kakaoController의 addDone"+dto);
   		session.setAttribute("login", dto);
+  		session.setAttribute("mesg", "회원 정보 입력이 완료되었습니다.");
 		mav.setViewName("redirect:/main");
   		return mav;
   	}
