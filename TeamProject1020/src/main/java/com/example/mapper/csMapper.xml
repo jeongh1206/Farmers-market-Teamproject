@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectFileByInqNo" resultType="FileDTO" parameterType="int">
-	select * from TB_FILE WHERE seq_no = #{seq_no} AND TB_TYPE = 'TB_CSINQUIRY'
+	select * from TB_FILE WHERE seq_no = #{inq_no} AND TB_TYPE = 'TB_CSINQUIRY'
 	</select>
 	
 	<delete id="csInqDelByInqNo" parameterType="int">
@@ -56,7 +56,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="adm_inqByInq_NO" parameterType="int" resultType="CsInqDTO">
 		SELECT inq_no,inq_type,inq_title,inq_content,tb_user.user_no,inq_update,inq_answer,inq_state,inq_created_date,user_name,user_email  FROM TB_CSINQUIRY JOIN tb_user ON TB_CSINQUIRY.user_no = tb_user.user_no where inq_no = #{inq_no}
-	
 	</select>
 </mapper>
 

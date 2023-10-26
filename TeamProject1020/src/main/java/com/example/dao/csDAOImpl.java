@@ -47,7 +47,9 @@ public class csDAOImpl implements csDAO{
 
 	@Override
 	public ArrayList<FileDTO> selectFileByInqNo(SqlSessionTemplate session, int seq_no) {
-		return (ArrayList)session.selectList("selectFileByInqNo",seq_no);
+		ArrayList<FileDTO> list = null;
+		list = (ArrayList)session.selectList("selectFileByInqNo",seq_no);
+		 return  list;
 	}
 
 	@Override
@@ -69,10 +71,10 @@ public class csDAOImpl implements csDAO{
 	}
 
 	@Override
-	public List<CsInqDTO> adm_inqByInq_NO(SqlSessionTemplate session,int inq_no) {
-		ArrayList<CsInqDTO>  list = null;
-		list = (ArrayList)session.selectList("adm_inqByInq_NO",inq_no);
-		return list;
+	public CsInqDTO adm_inqByInq_NO(SqlSessionTemplate session,int inq_no) {
+		CsInqDTO  dto = null;
+		dto = session.selectOne("adm_inqByInq_NO",inq_no);
+		return dto;
 	}
 	
 	

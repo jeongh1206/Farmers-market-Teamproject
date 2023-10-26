@@ -77,9 +77,11 @@ $(function() {
 					</td>
 				</tr>
 				<tr>
-					<th class="align-middle">첨부파일</th>
+					<th class="align-middle">첨부파일<br>*gif,jpg,png </th>
 					<td class="d-flex justify-content-start">
+					<p></p>
 					<button class="btn btn-secondary uploadFileBtn" id="uploadFileBtn"><a href="#this">파일추가</a></button>		
+						
 						<div class="form-group file-list" id="file-list">
 							</div>
 					</td>
@@ -150,7 +152,8 @@ $(document).ready(function(){
 	//파일 추가
 	function addFile() {
 		event.preventDefault();
-		var str = "<div class='file-group'><input type='file' name='files' class='files'><a href='#this' name='file-delete'>삭제</a><br>";
+		var str = "<div class='file-group'>";
+		str+= "<input type='file' name='files' class='files' accept='.gif, .jpg, .png'><a href='#this' name='file-delete'>삭제</a><br>";
 		$("#file-list").append(str);
 		$("a[name='file-delete']").on("click", function(e) {
 			e.preventDefault();

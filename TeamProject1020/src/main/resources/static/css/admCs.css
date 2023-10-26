@@ -1,5 +1,11 @@
 @charset "UTF-8";
-/*모달 팝업창*/
+/*모달창*/
+#modalWrap{
+	position:relative;
+	display:none;
+	margin-top:-550px;
+}
+/*모달 팝업창 body*/
 #modalBody {
 	/*확대/축소 시 하위 태그 비율 따라서 맞춰짐*/
   justify-content:flex-end;
@@ -9,6 +15,7 @@
   margin: 0 auto;
   border: 1px solid #777;
   background-color: #fff;
+  height:400px;
   /*그림자:
    offset-x offset-y blur-radius (color)
   */
@@ -27,7 +34,7 @@
 #csAnswer{
 	border:solid 1px gray;
 	width:100%;
-	height:50%;
+	height:100px;
 	resize: none;
 	
 }
@@ -35,4 +42,18 @@
 #answerBtn{
 	display:absolute;
 	height:70%;
+}
+
+
+/*body에서 모달창 제외 부분*/
+.container-fluid .px-4{
+	position:relative;
+}
+
+/*파일 열기 클릭 시 보이는 부분*/
+#OpenFile{
+	margin-top:30px;
+	background-color: green;
+	height:300px;
+	/*display:none;*/	
 }

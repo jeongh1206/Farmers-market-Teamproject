@@ -297,7 +297,8 @@ public class CustomerServiceController {
 		        	//files가 null 아니어도 들어간 값이 없을 수 있음
 		        	//file이 진짜 없을때만 저장
 		        	String originalName = file.getOriginalFilename();//모든 경로를 포함한 파일이름
-					String fileName = originalName.substring(originalName.lastIndexOf("//") + 1); //원본 파일
+					System.out.println(originalName);
+		        	String fileName = originalName.substring(originalName.lastIndexOf("//") + 1); //원본 파일
 				        String folderPath = makeFolder();
 				        String uuid = UUID.randomUUID().toString();
 				        //저장할 파일 이름 중간에 "_"를 이용하여 구분
@@ -305,8 +306,6 @@ public class CustomerServiceController {
 				        Path savePath = Paths.get(saveName);
 			            //Paths.get() 메서드는 특정 경로의 파일 정보를 가져온다.(경로 정의하기)
 				        String saveFileName=saveName.substring(saveName.lastIndexOf("\\")+1); //바꾼 파일 이름
-//				        String svaeFilePath=saveName.substring(0,saveName.lastIndexOf("\\")+1); // 파일 경로         
-//				        System.out.println(svaeFilePath);
 				        String saveFilePath=saveName.substring(19,saveName.lastIndexOf("\\")+1); // 파일 경로         
 			            try {
 			                file.transferTo(savePath);
@@ -342,7 +341,7 @@ public class CustomerServiceController {
 			File uploadPathFoler = new File(uploadPath, folderPath);
 			// File newFile= new File(dir,"파일명");
 			// ->부모 디렉토리를 파라미터로 인스턴스 생성
-
+			System.out.println(uploadPath);
 			if (uploadPathFoler.exists() == false) {
 				uploadPathFoler.mkdirs();
 				// 만약 uploadPathFolder가 존재하지 않는다면 makeDirectory하라는 의미

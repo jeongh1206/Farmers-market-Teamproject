@@ -10,6 +10,12 @@
 	font-weight:bold;
 }
 
+
+.fontLgBold{
+	font-weight:bold;
+	font-size:18px;
+}
+
 .fontWhiteLg{
 	color: white;
 	font-size: 18px;

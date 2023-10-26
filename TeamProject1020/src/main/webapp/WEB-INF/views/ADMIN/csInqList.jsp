@@ -16,61 +16,97 @@ pageEncoding="UTF-8"%>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="<%=request.getContextPath()%>/resources/css/styles.css" rel="stylesheet" />
 		
-		<!-- css 수정 파일 -->        
+		<!-- css 파일 추가 -->        
         <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/admCs.css">
+        <link href="<%=request.getContextPath()%>/resources/css/font.css" rel="stylesheet" />
         
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
    	 <!-- jquery -->
    	 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
    	<script>
    	//post 로 뿌리면서 시작하기 
-   	function ckfnc(Inq_no){
-   		// inq_no를 넘기는 ajax 로 수정해서 모달창 띄우도록 해야한다.
-   		//"/app/adm_csInqRetrieve
-   	}
-   	$(function() {
-   		
-   		
-				var tableStr = "";
-				 <%if(request.getAttribute("CsInq")!=null){
-						ArrayList list = (ArrayList)request.getAttribute("CsInq");
-						for(int i=0;i<list.size();i++){
-							//Object 타입으로되어있어 형변환부터.
-						CsInqDTO dto = (CsInqDTO)list.get(i);
-						%>
-						tableStr += "<tr class=>"
-							tableStr += "<td>"+'<%=dto.getInq_no()%>'+"</td>";
-							tableStr += "<td>"+'<%=dto.getUser_name()%>'+"</td>";
-							tableStr += "<td><a href='#' onclick='ckfnc(<%=dto.getInq_no()%>)'>"+'<%=dto.getInq_title()%>'+"</a></td>";
-							tableStr += "<td>"+'<%=dto.getInq_type()%>'+"</td>";
-							tableStr += "<td>"+'<%=dto.getInq_update()%>'+"</td>";
-							tableStr += "<td>"+'<%=dto.getInq_state()%>'+"</td>";
-							tableStr += "</tr>";
+   			//모달창
+		///<a href="#">파일</a>
+				         
+		 function openfnc(Inq_no) {
+   		//모달창 보이게 처리
+			 $('#modalWrap').attr("style","display:block");
+			 $.ajax({
+					type : "POST",
+					url : "adm_csInqRetrieve",
+					dataType : "json",
+					data : {
+						"inq_no" : Inq_no
+					},
+					success : function(rdata, status, xhr) {
+						//문의 내용 
+						$("#mdTitle").text(rdata.CsInqRetrieve.inq_title);
+						$("#mdWriter").text(rdata.CsInqRetrieve.user_name);
+						$("#mdDate").text(rdata.CsInqRetrieve.inq_update);
+						$("#mdContent").text(rdata.CsInqRetrieve.inq_content);
+						
+						//파일 읽어오기
+						const reader = new FileReader();
+						//파일이 없을 수도 있음
+						if(rdata.fileList!=null){
+							console.log(typeof(rdata.fileList));
+							console.log(rdata.fileList);
+							var fileStr = "";
+							/////////////////
+							//////로컬 경로 에러 나는 부분. webconfig 파일 받아야함
+							for(var index = 0;index<rdata.fileList.length;index++){
+								 var path = rdata.fileList[index];
+								fileStr += "<img width='100' height='100' src='"+path+"'>";
+							}//for
 							
-						<%}//for
-					}//if%>
-				$("tbody").html(tableStr);	
-				
-				//전체목록 끝
-				
-				//모달창
-		//띄워주는 창
-		const btn = $('tr');
-		const modal = $('#modalWrap');
-		const closeBtn = $('#closeBtn');
-		
-		btn.onclick = function() {
-		  modal.style.display = 'block';
-		}
-		closeBtn.onclick = function() {
-		  modal.style.display = 'none';
+						}//if
+						//파일 리스트의 객체를 꺼내서 
+						
+						//파일 내용
+						$("#mdFile").append(fileStr);
+					}, 
+					error : function(xhr, status, error) {
+						console.log("error");
+						return false;
+					}//error
+				});//ajax
 		}
 		
-		window.onclick = function(event) {
-		  if (event.target == modal) {
-		    modal.style.display = "none";
-		  }
-		}
+		
+		  
+   	$(function() {
+   		$('#closeBtn').click(function() {
+			$('#modalWrap').attr("style","display:none");
+		});
+   		
+   		//모달 관련
+   		if (event.target == $('#modalWrap')) {
+			  $('#modalWrap').attr("style","display:none");
+		  }//if
+   		
+			var tableStr = "";
+			 <%if(request.getAttribute("CsInq")!=null){
+					ArrayList list = (ArrayList)request.getAttribute("CsInq");
+					for(int i=0;i<list.size();i++){
+						//Object 타입으로되어있어 형변환부터.
+					CsInqDTO dto = (CsInqDTO)list.get(i);
+					%>
+					tableStr += "<tr class=>"
+						tableStr += "<td>"+'<%=dto.getInq_no()%>'+"</td>";
+						tableStr += "<td>"+'<%=dto.getUser_name()%>'+"</td>";
+						tableStr += "<td><a href='#' onclick='openfnc(<%=dto.getInq_no()%>)'>"+'<%=dto.getInq_title()%>'+"</a></td>";
+						tableStr += "<td>"+'<%=dto.getInq_type()%>'+"</td>";
+						tableStr += "<td>"+'<%=dto.getInq_update()%>'+"</td>";
+						tableStr += "<td>"+'<%=dto.getInq_state()%>'+"</td>";
+						tableStr += "</tr>";
+						
+					<%}//for
+				}//if%>
+			$("tbody").html(tableStr);	
+			
+			//전체목록 끝
+			
+		
    	});//ready
    	</script>
     </head>
@@ -101,7 +137,7 @@ pageEncoding="UTF-8"%>
                                 <table id="datatablesSimple">
 									 <thead>
                                         <tr>
-                                            <th>번호</th>
+                                            <th>문의 글 번호</th>
                                             <th>작성자</th>
                                             <th>제목</th>
                                             <th>유형</th>
@@ -131,27 +167,34 @@ pageEncoding="UTF-8"%>
 			        <div id="modalBody">
 				        <span id="closeBtn">&times;</span>
 				       
-				        <p>제목</p>
+				        <span id="mdTitle" class="fontLgBold">제목</span>
 				         <hr>
-				           	작성자 일시<br>
+				           	<span id="mdWriter">작성자</span>&nbsp;<span id="mdDate">등록날짜</span><br>
 				         <hr>
-				         	내용
+				         	<span  id="mdContent">내용</span>
 				         <hr>
 				         
+				         <form>
+				         <textarea id="csAnswer" placeholder="답변 입력"></textarea>
+				         <div id="mdFile">
 				         
-				         <textarea id="csAnswer" placeholder="답변 입력">
-				         </textarea>
-				         <a href="#">파일</a>
-				         <a href="#">파일</a><br>
+				         </div>	
+				         <br>
 				         <div class="d-flex flex-row-reverse">
-				<button type="button" id="answerBtn"class="btn btn-secondary p-2">작성하기</button>
-			</div>
+							<button type="submit" id="answerBtn"class="btn btn-secondary p-2">작성하기</button>
+						</div>
+						</form>
+						
 			        </div><!-- modalBody -->
 		        </div><!-- modalContent -->
+		        <div id="OpenFile">
+		      		이부분 파일 보이게 할 예정
+  			 			 </div>
 		      </div><!-- modalWrap -->
 		      <br>
 		      <br>
 		      <br>
+		      
                 </main>
                 <jsp:include page="common/bottom.jsp" flush="true"></jsp:include>
             </div>

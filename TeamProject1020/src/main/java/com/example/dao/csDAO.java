@@ -31,6 +31,6 @@ public interface csDAO {
 
 	List<CsInqDTO> adm_csInqAll(SqlSessionTemplate session);
 	
-	List<CsInqDTO> adm_inqByInq_NO(SqlSessionTemplate session,int inq_no);
+	CsInqDTO adm_inqByInq_NO(SqlSessionTemplate session,int inq_no);
 
 }

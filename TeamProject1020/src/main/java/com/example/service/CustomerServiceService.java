@@ -32,7 +32,7 @@ public interface CustomerServiceService {
 	public void csInqDelByInqNo(int inqNo);
 	public void fileDelBySeq(int inqNo);
 	public List<CsInqDTO> adm_csInqAll();
-	public List<CsInqDTO> adm_inqByInq_NO(int inq_no);
+	public CsInqDTO adm_inqByInq_NO(int inq_no);
 	
 	
 

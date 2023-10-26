@@ -400,9 +400,9 @@ public List<CsInqDTO> adm_csInqAll() {
 }
 
 @Override
-public List<CsInqDTO> adm_inqByInq_NO(int inq_no) {
-	List<CsInqDTO> list = dao.adm_inqByInq_NO(session,inq_no);
-	return list;
+public CsInqDTO adm_inqByInq_NO(int inq_no) {
+	CsInqDTO dto = dao.adm_inqByInq_NO(session,inq_no);
+	return dto;
 }
 }//class
 
