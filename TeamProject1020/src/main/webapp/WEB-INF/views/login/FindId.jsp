@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
 <!-- font관련 css 추가 -->
-<link href="../resources/css/font.css" rel="stylesheet" type="text/css">
+<link hreㄹf="../resources/css/font.css" rel="stylesheet" type="text/css">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" >
 </head>
 <body>
-<jsp:include page="../common/tempTop.jsp" flush="true"/> <br>
+<jsp:include page="../common/top.jsp" flush="true"/> <br>
 
         <%if(request.getAttribute("findId")==null){ %>
 
@@ -19,7 +19,7 @@
 	<!-- jquery -->
 <script src="http://code.jquery.com/jquery.js"></script>
 <!-- 유효성 검사 -->
-<script type="text/javascript" src="../resources/js/login_Buyer.js"></script>
+<script type="text/javascript" src="../resources/js/Buyer.js"></script>
 
 	<div class="d-flex justify-content-center fontTitle"> <span>아이디 찾기</span></div>
     <div class="d-flex justify-content-center">
@@ -44,7 +44,7 @@
 	<br>
 	</div>
 	<% }else{%>
-	<div>
+	<div class="d-flex justify-content-center">
 		<!-- 아이디를 찾아와 이 페이지로 돌아오면 -->
 		<span class="fontBold"> <%=request.getAttribute("findId") %></span>
 	<%}%>
@@ -54,7 +54,7 @@
 	<button><a href="/app/login/findPwUI" class="fontBold">비밀번호 찾기</a><br></button>&nbsp;
 	<button><a href="/app/login/UI" class="fontBold">로그인</a></button><br>
 	</div><br>
-	<jsp:include page="../common/tempBottom.jsp" flush="true"/> <br>
+	<jsp:include page="../common/bottom.jsp" flush="true"/> <br>
 
 <br>
 </body>

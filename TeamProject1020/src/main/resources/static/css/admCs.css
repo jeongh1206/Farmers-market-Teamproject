@@ -3,7 +3,7 @@
 #modalWrap{
 	position:relative;
 	display:none;
-	margin-top:-550px;
+	margin-top:-400px;	
 }
 /*모달 팝업창 body*/
 #modalBody {
@@ -31,6 +31,7 @@
   cursor: pointer;
 }
 
+
 #csAnswer{
 	border:solid 1px gray;
 	width:100%;
@@ -50,10 +51,22 @@
 	position:relative;
 }
 
-/*파일 열기 클릭 시 보이는 부분*/
-#OpenFile{
-	margin-top:30px;
-	background-color: green;
-	height:300px;
-	/*display:none;*/	
+#DivOpenImg{
+	margin-top:50px;
+	display:none;
 }
+/*이미지 닫기 버튼*/
+#closeImg {
+  float:center;
+  font-weight: bold;
+  color: #777;
+  font-size:25px;
+  cursor: pointer;
+}	
+/*모달창 내 삭제 버튼*/
+#delbtn{
+	position:relative;
+	margin-left:600px;
+	margin-top:-50px;
+}
+

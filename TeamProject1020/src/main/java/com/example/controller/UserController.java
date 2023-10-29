@@ -116,14 +116,14 @@ public class UserController {
 			dto.setUser_email(user_email);
 		
 			if(service.findId(dto)==null) {
-				String str =  "확인된 정보가 없습니다.";
-				str += 	"<br><a href='/app/login/findIdUI'>아이디 찾기</a><br>";
+				String str =  "<br><br>확인된 정보가 없습니다.";
+				str += 	"<br><br>";
 				mav.addObject("findId",str);
 			
 			} else{//dto 값은 있는데 카카오 계정이라면
 				dto = service.findId(dto);
 				if(dto.getUser_type().equals("kakao")) {
-					mav.addObject("findId", "카카오 간편 로그인으로 가입한 계정입니다.");
+					mav.addObject("findId", "<br><br>카카오 간편 로그인으로 가입한 계정입니다.<br>");
 					
 					
 					//dto값이 카카오 계정이 아니면
@@ -131,8 +131,8 @@ public class UserController {
 				mav.addObject("findId", "고객님의 아이디는 "+dto.getUser_id()+"입니다.");
 				}//else if
 				else {
-					String str =  "회원 유형을 확인해주세요";
-					str += 	"<br><a href='/app/login/findIdUI'>아이디 찾기</a><br>";
+					String str =  "<br><br>	회원 유형을 확인해주세요";
+					str += 	"<br><br>";
 					mav.addObject("findId",str);
 				
 				}

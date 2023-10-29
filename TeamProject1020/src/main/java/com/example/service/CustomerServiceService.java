@@ -33,6 +33,8 @@ public interface CustomerServiceService {
 	public void fileDelBySeq(int inqNo);
 	public List<CsInqDTO> adm_csInqAll();
 	public CsInqDTO adm_inqByInq_NO(int inq_no);
+	public FileDTO adm_fileByfile_No(int file_no);
+	public void adm_updateInqAnswer(CsInqDTO dto);
 	
 	
 

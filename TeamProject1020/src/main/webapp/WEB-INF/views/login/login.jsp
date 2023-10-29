@@ -23,13 +23,21 @@
    
     <script type="text/javascript">
     $(document).ready(function(){
-    
+    	//저장된 아이디 값이 있다면
+    	if(window.localStorage.getItem("user_id")!=null){
+    		//로컬 스토리지
+    		const savedId = window.localStorage.getItem("user_id");
+    		$("#user_id").val(savedId);
+    		$("#remember").prop("checked",true);
+    	}
+    	
     // 로그인 눌렀을 때 경고창 띄우기 - 키값 mesg로 바꾸자
    
     	<%if(session.getAttribute("warning")!=null){%>
 			alert('<%=session.getAttribute("warning")%>');
 			<%session.removeAttribute("warning");}%>
 	
+			
      //아이디 또는 비밀번호 비었을 경우 메세지 출력
      $("#login-form").submit(function (){
 		 if($("#user_id").val().length==0){
@@ -38,12 +46,22 @@
     	 }else{
     		 $("#id_message").text("");
     	 }//아이디
+    	 
 		 if($("#user_pw1").val().length==0){
     		 event.preventDefault();
     		 $("#pw_message1").text("비밀번호를 입력하세요");
     	 }else{
     		 $("#pw_message1").text("");
     	 }//비밀번호
+    	 
+    	 
+    	if($("#remember").is(":checked")){
+   		 window.localStorage.setItem("user_id", $("#user_id").val());
+    	}//if
+    	else{
+   		 window.localStorage.removeItem('user_id');
+    	}//else//아이디 저장
+    	
      });//submit
     $(".form-control").keyup(function(){
     	$(this).next().text("");

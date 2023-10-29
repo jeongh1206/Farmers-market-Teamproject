@@ -404,5 +404,18 @@ public CsInqDTO adm_inqByInq_NO(int inq_no) {
 	CsInqDTO dto = dao.adm_inqByInq_NO(session,inq_no);
 	return dto;
 }
+
+@Override
+public FileDTO adm_fileByfile_No(int file_no) {
+	FileDTO dto = dao.adm_fileByfile_No(session,file_no);
+	return dto;
+}
+
+@Override
+public void adm_updateInqAnswer(CsInqDTO dto) {
+	dao.adm_updateInqAnswer(session,dto);
+}
 }//class
+
+
 

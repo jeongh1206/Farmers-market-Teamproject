@@ -76,6 +76,18 @@ public class csDAOImpl implements csDAO{
 		dto = session.selectOne("adm_inqByInq_NO",inq_no);
 		return dto;
 	}
+
+	@Override
+	public FileDTO adm_fileByfile_No(SqlSessionTemplate session, int file_no) {
+		FileDTO dto = null;
+		dto = session.selectOne("adm_fileByfile_No",file_no);
+		return dto;
+	}
+
+	@Override
+	public void adm_updateInqAnswer(SqlSessionTemplate session,CsInqDTO dto) {
+		session.update("adm_updateInqAnswer",dto);
+	}
 	
 	
 

@@ -33,4 +33,8 @@ public interface csDAO {
 	
 	CsInqDTO adm_inqByInq_NO(SqlSessionTemplate session,int inq_no);
 
+	FileDTO adm_fileByfile_No(SqlSessionTemplate session, int file_no);
+
+	void adm_updateInqAnswer(SqlSessionTemplate session,CsInqDTO dto);
+
 }
